@@ -33,9 +33,9 @@ public class CategoryController {
         return new ResponseEntity<>(list,HttpStatus.OK);
     }
 
-    @GetMapping("/updateCategory/{id}")
+    @PutMapping("/updateCategory/{id}")
     public ResponseEntity<ApiResponse> update(@PathVariable Integer id , @RequestBody Category category){
-        if(Objects.nonNull(categoryService.readId(id))){
+        if(categoryService.readId(id).isPresent()){
             categoryService.updateCategory(id,category);
             return new ResponseEntity<>(new ApiResponse(true, "updated the category"), HttpStatus.OK);
         }

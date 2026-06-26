@@ -28,7 +28,7 @@ public class CategoryService {
         return categoryRepository.findById(id);
     }
     public void updateCategory(Integer categoryID, Category newCategory) {
-        Category category = categoryRepository.findById(categoryID).get();
+        Category category = categoryRepository.findById(categoryID).orElseThrow(() -> new RuntimeException("Category not found"));
         category.setName(newCategory.getName());
         category.setDescription(newCategory.getDescription());
         category.setImageURL(newCategory.getImageURL());
