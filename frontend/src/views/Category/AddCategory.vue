@@ -53,9 +53,9 @@ export default {
       const baseURL = "http://localhost:8080/";
 
       await axios({
-        method: 'post',
-        url: baseURL+"category/create",
-        data : JSON.stringify(newCategory),
+        method: 'post',  // HTTP method
+        url: baseURL+"category/create", // your endpoint
+        data : JSON.stringify(newCategory),  // request body
         headers: {
           'Content-Type': 'application/json'
         }

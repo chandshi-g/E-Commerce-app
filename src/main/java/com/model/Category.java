@@ -16,7 +16,7 @@ public class Category {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(name = "category_name")
+    @Column(name = "name")
     @NotBlank private String name;
     @NotBlank private String description;
     @NotBlank private String imageURL;

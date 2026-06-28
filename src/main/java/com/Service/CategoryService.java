@@ -34,4 +34,8 @@ public class CategoryService {
         category.setImageURL(newCategory.getImageURL());
         categoryRepository.save(category);
     }
+
+    public void deleteCategory(Integer categoryId) {
+        categoryRepository.deleteById(categoryId);
+    }
 }
