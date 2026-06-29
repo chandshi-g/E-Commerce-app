@@ -7,6 +7,9 @@
     <div class="card-body">
       <h5 class="card-title">{{category.name}}</h5>
       <p class="card-text font-italic">{{category.description.substring(0,65)}}...</p>
+        <router-link id="edit-category" :to="{ name: 'EditCategory', params: { id : category.id } }" >
+                Edit
+              </router-link>
     </div>
   </div>
 </template>
@@ -16,6 +19,7 @@ export default {
     name : "CategoryBox",
     props : ["category"],
     methods : {
+
 
     }
 }

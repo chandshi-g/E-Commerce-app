@@ -48,7 +48,7 @@ public class ProductController {
         return new ResponseEntity<>(productService.getList(Category_id),HttpStatus.ACCEPTED);
     }
 
-    @PutMapping("/update{product_id}")
+    @PutMapping("/update/{product_id}")
     public ResponseEntity<ApiResponse> updateProduct(@PathVariable Integer product_id,@RequestBody ProductDto productDto){
         Optional<Category> optCategory = categoryService.readId(productDto.getCategoryId());
         if(!optCategory.isPresent()){
