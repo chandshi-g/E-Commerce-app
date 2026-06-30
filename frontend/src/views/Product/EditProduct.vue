@@ -56,6 +56,7 @@ export default {
       description : null,
       imageURL : null,
       price : 0,
+      quantity : 0,
       productIndex : null
     }
   },
@@ -68,7 +69,8 @@ export default {
         name : this.name,
         description : this.description,
         imageURL : this.imageURL,
-        price : this.price
+        price : this.price,
+        quantity : this.quantity
       }
 
       await axios({
@@ -101,6 +103,7 @@ export default {
     this.description = this.products[this.productIndex].description;
     this.imageURL = this.products[this.productIndex].imageURL;
     this.price = this.products[this.productIndex].price;
+    this.quantity = this.products[this.productIndex].quantity;
   }
 }
 </script>

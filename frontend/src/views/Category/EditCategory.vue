@@ -54,14 +54,14 @@ export default {
     async editCategory() {
       const updatedCategory = {
         id : this.id,
-        categoryName : this.categoryName,
+        name : this.categoryName,
         description : this.description,
-        imageUrl : this.imageUrl,
+        imageURL : this.imageURL,
       }
 
       await axios({
-        method: 'post',
-        url: this.baseURL+"category/update/"+this.id,
+        method: 'put',
+        url: this.baseURL+"category/updateCategory/"+this.id,
         data : JSON.stringify(updatedCategory),
         headers: {
           'Content-Type': 'application/json'
@@ -80,9 +80,9 @@ export default {
   mounted() {
     this.id = this.$route.params.id;
     this.category = this.categories.filter(category => category.id == this.id)[0];
-    this.categoryName = this.category.categoryName;
+    this.categoryName = this.category.name;
     this.description = this.category.description;
-    this.imageUrl = this.category.imageUrl;
+    this.imageURL = this.category.imageURL;
   }
 }
 </script>

@@ -22,7 +22,7 @@ public class ProductDto {
         this.setImageURL(product.getImageURL());
         this.setDescription(product.getDescription());
         this.setPrice(product.getPrice());
-        this.setPrice(product.getQuantity());
+        this.setQuantity(product.getQuantity());
         this.setCategoryId(product.getCategory().getId());
     }
 
