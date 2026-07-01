@@ -2,21 +2,15 @@ package com.Controller;
 
 import com.Config.ApiResponse;
 import com.DTO.Product.ProductDto;
-import com.Repository.ProductRepository;
 import com.Service.CategoryService;
 import com.Service.ProductService;
 import com.model.Category;
-import com.model.Product;
-import jakarta.persistence.criteria.CriteriaBuilder;
-import org.hibernate.validator.internal.constraintvalidators.bv.time.past.AbstractPastInstantBasedValidator;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.AutoConfigurationPackage;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Objects;
 import java.util.Optional;
 
 @RestController
