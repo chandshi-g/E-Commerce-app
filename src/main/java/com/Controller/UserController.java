@@ -5,6 +5,7 @@ import com.DTO.Users.SignInResponseDto;
 import com.DTO.Users.SignUpResponseDto;
 import com.DTO.Users.SignupDto;
 import com.Service.UserService;
+import com.exceptions.AuthenticationFailException;
 import com.exceptions.CustomException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -24,7 +25,7 @@ public class UserController {
         return userService.signUp(signupDto);
     }
     @PostMapping("/signIn")
-    public SignInResponseDto Signup(@RequestBody SignInDto signInDto) throws CustomException {
+    public SignInResponseDto Signup(@RequestBody SignInDto signInDto) throws CustomException, AuthenticationFailException {
         return userService.signIn(signInDto);
     }
 }
