@@ -12,7 +12,7 @@
             <div class="col-md-6 col-12 pt-3 pt-md-0">
                 <h4>{{product.name}}</h4>
 
-                <h6 class="category font-italic">{{category.name}}</h6>
+                <h6 class="category font-italic">{{category.categoryName}}</h6>
 
                 <p><span class="font-weight-bold">Description: -</span> <br>{{product.description}}</p>
 
