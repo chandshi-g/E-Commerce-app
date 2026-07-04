@@ -3,13 +3,16 @@ package com.Service;
 import com.DTO.Product.ProductDto;
 import com.Repository.CategoryRepository;
 import com.Repository.ProductRepository;
+import com.exceptions.ProductNotExistException;
 import com.model.Category;
 import com.model.Product;
+import jakarta.validation.constraints.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ProductService {
@@ -57,6 +60,13 @@ public class ProductService {
         Product product = getProductFromDto(productDto,category);
         product.setId(product_id);
         productRepository.save(product);
+    }
+
+    public Product getProductById(@NotNull Integer productId)throws ProductNotExistException {
+        Optional<Product> optionalProduct = productRepository.findById(productId);
+        if (!optionalProduct.isPresent())
+            throw new ProductNotExistException("Product id is invalid " + productId);
+        return optionalProduct.get();
     }
 
 }
