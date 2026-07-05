@@ -26,8 +26,14 @@
         </div>
       </form>
     </div>
-    <div>
-    </div>
+
+    <!-- Cart Icon -->
+    <li class="nav-item">
+      <router-link class="text-light" :to="{ name: 'Cart' }">
+        <i class="fa fa-shopping-cart" style="font-size:36px"></i>
+      </router-link>
+    </li>
+
 <!--      Admin drop down-->
     <li class="nav-item dropdown">
       <a class="nav-link text-light dropdown-toggle" href="#" id="navbarDropdownAdmin" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -45,6 +51,8 @@
           Accounts
       </a>
       <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <router-link class="dropdown-item" v-if="!token" :to="{name: 'Signin'}">Wishlist</router-link>
+          <router-link class="dropdown-item" v-else :to="{name : 'Wishlist'}" >Wishlist</router-link>
           <router-link class="dropdown-item" v-if="!token" :to="{name: 'Signin'}">Log In</router-link>
           <router-link class="dropdown-item" v-if="!token" :to="{name: 'Signup'}">Sign Up</router-link>
           <a class="dropdown-item" v-if="token" href="#" @click="signout">Sign Out</a>
