@@ -23,6 +23,8 @@
             Quantity :
             <input size="1" class="p-0 h-25 border-bottom border-top-0 border-left-0 border-right-0" v-model="cartItem.quantity" /></p>
           <p id="item-total-price" class="mb-0">Total : <span class="font-weight-bold"> $ {{cartItem.product.price*cartItem.quantity}}</span></p>
+          <!--make a function deleteItem and pass cartitem.id and trigger it on click  -->
+          <br><a href="#"  @click.prevent="deleteItem(cartItem.id)">Remove From Cart</a>
         </div>
       </div>
       <div class="col-2"></div>
@@ -50,20 +52,42 @@ export default {
   name: 'ShoppingCart',
   props: ["baseURL"],
   methods: {
+     isDisabled(){
+       if(this.cartItems.length === 0){
+         return true;
+       }
+       return false;
+     },
     // fetch all the items in cart
-     listCartItems(){
+    listCartItems(){
       axios.get(`${this.baseURL}cart/?token=${this.token}`).then((response) => {
         if(response.status==200){
           const result = response.data;
           // store cartitems and total price in two variables
           this.cartItems = result.cartItems;
-          this.totalcost = result.totalCost
+          this.totalcost = result.totalCost.toFixed(2);
         }
       },
       (error)=>{
         console.log(error)
       });
     },
+    //delete the cart item
+        deleteItem(itemId) {
+        console.log("Delete clicked");
+            console.log(itemId);
+
+           // 2. first delete the item by calling delete api
+          axios.delete(`${this.baseURL}cart/delete/${itemId}/?token=${this.token}`)
+            .then((response)=>{
+              if(response.status == 200){
+                // 3. refresh the data by calling listCartItems
+                this.listCartItems();
+              }
+            },(error)=>{
+              console.log(error)
+            })
+        }
   },
 
   mounted() {

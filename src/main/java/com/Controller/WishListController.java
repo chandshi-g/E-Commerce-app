@@ -54,4 +54,5 @@ public class WishListController {
         }
         return new ResponseEntity<>(products, HttpStatus.OK);
     }
+
 }
