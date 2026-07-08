@@ -34,7 +34,7 @@
     <!-- display total price -->
     <div class="total-cost pt-2 text-right">
       <h5>Total : $ {{totalcost}}</h5>
-      <button :disabled="isDisabled()" type="button" class="btn btn-primary confirm" >Confirm Order</button>
+      <button :disabled="isDisabled()" type="button" class="btn btn-primary confirm" @click="checkout()">Confirm Order</button>
     </div>
   </div>
 </template>
@@ -76,9 +76,10 @@ export default {
         deleteItem(itemId) {
         console.log("Delete clicked");
             console.log(itemId);
-
+         const url = `${this.baseURL}cart/delete/${itemId}?token=${this.token}`;
+           console.log(url);
            // 2. first delete the item by calling delete api
-          axios.delete(`${this.baseURL}cart/delete/${itemId}/?token=${this.token}`)
+          axios.delete(url)
             .then((response)=>{
               if(response.status == 200){
                 // 3. refresh the data by calling listCartItems
@@ -87,7 +88,12 @@ export default {
             },(error)=>{
               console.log(error)
             })
-        }
+        },
+
+        // go to checkout page
+            checkout(){
+              this.$router.push({ name: 'Checkout'})
+            }
   },
 
   mounted() {
