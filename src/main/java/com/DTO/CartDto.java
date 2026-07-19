@@ -10,4 +10,8 @@ import java.util.List;
 public class CartDto {
     private List<CartItemDto> cartItems;
     private double totalCost;
+
+    public List<CartItemDto> getcartItems() {
+        return cartItems;
+    }
 }
