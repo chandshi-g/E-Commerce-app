@@ -53,10 +53,7 @@ export default {
   props: ["baseURL"],
   methods: {
      isDisabled(){
-       if(this.cartItems.length === 0){
-         return true;
-       }
-       return false;
+        return !this.cartItems || this.cartItems.length === 0;
      },
     // fetch all the items in cart
     listCartItems(){
@@ -64,6 +61,7 @@ export default {
         if(response.status==200){
           const result = response.data;
           // store cartitems and total price in two variables
+          console.log(result);
           this.cartItems = result.cartItems;
           this.totalcost = result.totalCost.toFixed(2);
         }

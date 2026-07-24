@@ -58,8 +58,8 @@ public class UserService {
     }
     String hashPassword(String password) throws NoSuchAlgorithmException {
         MessageDigest md = MessageDigest.getInstance("MD5");//start MD5 engine
-        md.update(password.getBytes());//convert the password into the string
-        byte[] digest = md.digest();//perfron the operations
+        md.update(password.getBytes());//convert the password into the bytes
+        byte[] digest = md.digest();//perform the operations
         String myHash = DatatypeConverter
                 .printHexBinary(digest).toUpperCase();
         return myHash;

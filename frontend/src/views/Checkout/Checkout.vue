@@ -47,6 +47,7 @@ export default {
 
         // get all cart Items for the user
                 getAllCartItems(){
+
                     axios.get(`${this.baseURL}cart/?token=${this.token}`).then((response) => {
                         if(response.status==200){
                             let cartItems = response.data.cartItems

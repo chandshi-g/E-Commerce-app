@@ -18,6 +18,7 @@ public class Category {
 
     @Column(name = "name")
     @NotBlank private String name;
+
     @NotBlank private String description;
     @NotBlank private String imageURL;
 

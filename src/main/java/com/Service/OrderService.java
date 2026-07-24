@@ -127,7 +127,7 @@ public class OrderService {
         // first let get cart items for the user
         CartDto cartDto = cartService.listCartItems(user);
 
-        List<CartItemDto> cartItemDtoList = cartDto.getcartItems();
+        List<CartItemDto> cartItemDtoList = cartDto.getCartItems();
 
         // create the order and save it
         Order newOrder = new Order();

@@ -1,0 +1,47 @@
+services:
+  mysql:
+    image: mysql:8.0
+    container_name: mysql-db
+
+    environment:
+      MYSQL_ROOT_PASSWORD: amazon123
+      MYSQL_DATABASE: ecommerce
+
+    ports:
+      - "3307:3306"
+
+    volumes:
+      - mysql-data:/var/lib/mysql
+      - ./mysql/init:/docker-entrypoint-initdb.d
+
+  backend:
+    build: .
+    image: chandashiii/ecommerce-backend:latest
+    container_name: ecommerce-backend
+
+    depends_on:
+      - mysql
+
+    ports:
+      - "8080:8080"
+
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/ecommerce
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: amazon123
+
+  frontend:
+    build: ./frontend
+    image: chandashiii/ecommerce-frontend:latest
+    container_name: ecommerce-frontend
+
+    depends_on:
+      - backend
+
+    ports:
+      - "3030:3030"
+
+volumes:
+  mysql-data:
+    external: true
+    name: 53aa3f5d1e8329b0bd0bb6f06f661b5153343305318fb2c98a7e41f437a9f511
