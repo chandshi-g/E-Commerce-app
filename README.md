@@ -1,79 +1,31 @@
-# E-Commerce Application
+StackCart 🛒
 
-A full-stack E-Commerce application built using:
+A full-stack e-commerce web application built for practice, covering product catalog, cart, wishlist, orders, and Stripe-based payments.
 
-- Spring Boot
-- MySQL
-- Vue.js
-- Docker
-- Docker Compose
+Tech Stack
+Frontend: Vue.js
+Backend: Spring Boot (REST API)
+Database: MySQL (Dockerized container)
+Payments: Stripe Integration
+Containerization: Docker
+Features
+Category & product management
+User authentication (token-based)
+Cart & wishlist functionality
+Order & order item management
+Stripe payment integration
+RESTful API architecture
+Architecture
+Frontend (Vue.js) communicates with the backend via REST APIs
+Backend (Spring Boot) handles business logic, authentication, and order processing
+MySQL runs in a Docker container — no local installation required
+Stripe handles payment processing securely
+Entities
 
----
+Category · Product · User · Cart · Wishlist · Order · OrderItem · AuthenticationToken
 
-## Requirements
-
-Install:
-
-- Docker Desktop
-
----
-
-## Run the project
-
-Clone the repository
-
-```bash
-git clone https://github.com/YOUR_USERNAME/E-Commerce-Application.git
-```
-
-Move inside
-
-```bash
-cd E-Commerce-Application
-```
-
-Run
-
-```bash
-docker compose up
-```
-
-Open
-
-Frontend
-
-```
-http://localhost:3030
-```
-
-Backend
-
-```
-http://localhost:8080
-```
-
-MySQL
-
-```
-localhost:3307
-```
-
-Stop
-
-```bash
-docker compose down
-```
-
----
-
-## Tech Stack
-
-Spring Boot
-
-Vue.js
-
-MySQL
-
+Setup & Installation
+Prerequisites
+Java 17+
+Node.js & npm
 Docker
-
-Docker Compose
